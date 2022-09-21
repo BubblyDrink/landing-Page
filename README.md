@@ -1,2 +1,3 @@
 # landing-Page
-Basic page using html and css 
+A Portfolio page using only HTML, CSS, and javascript.
+Links to other projects are stored here. 
