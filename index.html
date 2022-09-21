@@ -4,51 +4,44 @@
         <meta charset="UTF-8">
         <title>LANDING PAGE</title>
         <link rel='stylesheet' href='styles.css'/>
+        <script defer src="app.js"></script>
+        <script src="https://kit.fontawesome.com/bb60ea838b.js" crossorigin="anonymous"></script>
     </head>
     <body>
-        <div class="header-container">
-                <div class="header-logo">Header Logo</div>
-                <div class="header-links">
-                    <div class="link-two">header link two</div>
-                    <div class="link-three">header link three</div>
-                    <div class="link-one">header link one</div>
-                </div>
-        </div>    <!-- THIS IS THE END OF THE HEADER CONTAINER -->
-            <div class="hero-container">    
-                <div class="big-text">This website is <p>awesome!</p></div>
-                <div class="small-text">This website has some subtext that goes here under<p>the main title. It's smaller font and the color is lower contrast </p></div>
-                <button class="sign-up">Sign up</button>
-                <div class="image">This is a placeholder for the image</div>
+        <canvas id="gradient-canvas" data-js-darken-top data-transition-in></canvas>
+        <script type="module" src="./scripts/Gradient.js"></script>
+        <div class="hero-container" id="home"> <!--this is a scroll area-->  
+            <div id="navbar">
+                <div class="binary">[01000101]</div>
+                <a class="links" href="#home">Home</a>
+                <a class="links" href="#info">Languages</a>
+                <a class="links">Projects</a>
+                <script src="./scripts/nav.js"></script> 
+            </div> 
+            <div class="big-text">Hi! My name is Eric. </div>
+            <h1 id="text"></h1>
+            <script src="./scripts/typwriter.js"></script>
+            <div class="arrow"> <!-- arrows that point down from the main text-->
+                <span></span>
+                <span></span>
+                <span></span>
             </div>
         </div> <!--THIS IS THE END OF THE HERO CONTAINER-->
-        <div class="info-container"> <!-- THIS IS THE START OF THE INFORMATION CONTAINER -->
-            <div class="random"> Some random information.</div>
-            <div class="subtexts">
-                <div class="sub-1">this is some subtext <p>under an illustaration</p> or image </div>
-                <div class="sub-2">this is some subtext <p>under an illustaration</p> or image </div>
-                <div class="sub-3">this is some subtext <p>under an illustaration</p> or image </div>
-                <div class="sub-4">this is some subtext <p>under an illustaration</p> or image </div>
-            </div>
+        <div class="info-container" id="info"> <!-- THIS IS THE START OF THE INFORMATION CONTAINER -->
+            <div class="random"> Here are the different languages I know.</div>
             <div class="borders">
-                <div class="b1"></div>
+                <div class="b1">
+                    <i class="fa-brands fa-square-js fa-10x"></i>
+                </div>
                 <div class="b2"></div>
                 <div class="b3"></div>
                 <div class="b4"></div>
+
             </div>
         </div> <!-- THIS IS THE END OF THE INFO CONTAINER -->
         <div class="quote-container"> <!--THIS IS THE START OF THE QUOTE CONTAINER-->
-            <div class="quote">This is an inspiring quote, or a testimonial from a <p>customer. Maybe it's just filling up space, or maybe</p>people will actually read it. Who knows? All I know<p>is that it looks nice.</p></div>
-            <div class="sig">-Thor, God of Thunder</div>
+            <div class="quote">“Nearly all men can stand adversity,<p>but if you want to test a man's character,</p><p>give him power."</p></div>
+            <div class="sig">-Abraham Lincoln </div>
         </div><!--THIS IS THE END OF THE QUOTE CONTAINER-->
-        <div class="action-container">
-            <div class="box">
-                <div class="call">Call to action! It's time!</div>
-                <div class="signup">Sign up for our product by clicking that button right over there!</div>
-                <button class="sign-up-2">Sign up</button>
-            </div>
-        </div>
-        <div class="footer-container">
-            <div class="copyright">Copyright Ⓒ NotSeth 2022</div>
-        </div>
     </body>
 </html>

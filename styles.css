@@ -1,99 +1,138 @@
-* {
+body {
     margin: 0;
-}
-
-
-.header-container {
-    background-color: #1f2937; 
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    display: flex; /* wraps childern into box */
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    color: white;
-    gap: 700px;
-}
-
-.header-logo {
-    color:white;
-    font-size: 24px;
-    display: flex;
-    position: relative;
-    top: 25px;
-    left: 100px;
-    font-weight: bolder;
-    padding: 0 0 40px;
-    width: 150px;
-    height: 0;
     
 }
 
-.header-links {
-    display: flex;
-    align-items: center;
-    text-align: center;
-    position: relative;
-    align-items: center;
-    justify-content: space-around;
-    gap: 50px;
-    top: 20px;
-    right: 100px; 
+#gradient-canvas {
+    width:100%;
+    height:100%;
+
+    position: absolute;
+    top: 0;
+    left: 0; 
+    right: 0;
+    --gradient-color-1: #c3e4ff; 
+    --gradient-color-2: #6ec3f4; 
+    --gradient-color-3: #eae2ff;  
+    --gradient-color-4: #b9beff;
+}
+/* THIS IS THE END OF THE GRADIENT COLOR CODE */ 
+
+/* EVERYTHING BEYOND THIS POINT IS THE ARROW CODE */
+.arrow {
+    position: absolute; /* centers the arrow to the middle of the screen [ if set to relative it will be off screen] */
+    top: 92%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.arrow span {
+    display: block;
+    width: 30px; /* sets the arrow length left side*/
+    height: 30px; /* sets the arrow length right side side*/
+    border-bottom: 10px solid white; /* sets the arrow thickness left side*/
+    border-right: 10px solid white; /* sets the arrow thickness right side*/
+    border-radius: 0px 8px 6px 8px;
+    margin: -10px; /* sets the gap between the arrows*/
+    animation: scroll 3s infinite; /* timing of the arrows dropping*/
+    transform: rotate(45deg); /* ??? */
 
 }
+/* this is for the children inside the arrow div*/
+.arrow span:nth-child(2){
+    animation-delay: -.2s;
+}
+
+.arrow span:nth-child(3){
+    animation-delay: -.4s;
+}
+/* this controls the timing of the arrows*/
+@keyframes scroll{
+    0%{
+        opacity: 0; /* for some reason setting this to zero made it look smoother */
+        transform: rotate(45deg) translate(-20px, -20px);
+    }
+    50%{
+        opacity: 1;
+        
+    }
+    100%{
+        opacity: 1;
+        transform: rotate(45deg) translate(20px, 20px);
+    }
+}
+/* THIS IS THE END OF THE ARROW CODE */
+
+/* Style the navbar */
+#navbar {
+    color: white;/* calls for a animation called color */
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+}
+/* Navbar links */
+.links {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-weight: bolder;
+    font-size: x-large;
+    display: block;
+    padding: 30px;
+    position: relative;
+    left: 30%;
+}
+
+/* Binary logo */
+.binary {
+    font-size: xx-large;
+    font-weight: bolder;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    position: relative;
+    padding: 30px;
+    right: 30%;
+}
+
+/* Page content */
+.content {
+    padding: 16px;
+}
+
+/* The sticky class is added to the navbar with JS when it reaches its scroll position */
+.sticky {
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
+/* Add some top padding to the page content to prevent sudden quick movement (as the navigation bar gets a new position at the top of the page (position:fixed and top:0) */
+.sticky + .content {
+    padding-top: 60px;
+}
+
+
 
 .hero-container {
     display: flex;
     flex-direction: column;
     align-items: center;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    background-color: #1f2937;
     color: white;
-    /*  border: 1px solid #fff;  For debugging */
-    height: 600px;
+    background-color: black;
+    height: 1321px;
 }
 
 .big-text {
     font-size:  48px;
-    position: relative;
-    top: 100px;
-    right: 300px;
-    /* border: 1px solid #fff;   For debugging */
+    top: 40vh;
+    position:absolute;
     font-weight: bolder;
 }
 
-.small-text {
-    position: relative;
-    right: 250px;
-    top: 100px;
-}
-
-.sign-up {
-    background-color: #3882F6;
-    border-radius: 5px solid #fff;
-    color: white;
-    position: relative;
-    right: 390px;
-    top: 120px;
-    border: none;
-    border-radius: 12px;
-    padding: 15px 45px; /* increases the width and height of the button */
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px; /* changes the overall size of the button */
+#text {
+    font-size:  48px;
+    top: 45vh;
+    position:absolute;
     font-weight: bolder;
-}
-
-.image {
-    background-color: gray;
-    display: flex;
-    position: relative;
-    width: 500px; /* sets the width of the gray box */
-    height: 300px; /* sets the hight of the gray box */
-    left: 300px; /* sets the amount its pushed right */
-    bottom: 100px; /* sets the amount its pushed up */
-    align-items: center; /*aligns the text to the center left */
-    justify-content: center; /* aligns the text to the mid center of the div */
 }
 
 .info-container {
@@ -102,28 +141,18 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    height: 600px;
+    height: 1400px;
 } 
 
 .random {
     font-size: 36px;  
     font-weight: bolder;
-    color: #1F2937;
+    color: black;
     order: 1;
+    border: 2px solid black;
     position: relative;
-    bottom: 100px;
-}
+    bottom: 400px;
 
-.subtexts {
-    order: 3;
-    display: flex;
-    justify-content: center;
-    justify-items: center;
-    position: relative;
-    gap: 55px;
-    bottom: 20px;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    
 }
 
 .borders {
@@ -131,14 +160,18 @@
    position: relative;
    order: 2;
    bottom: 30px;
-   gap: 50px;
+   gap: 200px;
 }
 
 .b1 {
-    border: 3px solid #3882F6;
+    border: 3px solid #9b22ff;
     border-radius: 20px;
-    width: 150px;
+    width: 300px;
     height: 150px;
+}
+
+.fa-square-js {
+    color:#9b22ff;
 }
 .b2 {
     border: 3px solid #3882F6;
@@ -159,6 +192,14 @@
     height: 150px;
 }
 
+.b5 {
+    border: 3px solid #3882F6;
+    border-radius: 20px;
+    width: 150px;
+    height: 150px;
+    order: 3;
+}
+
 .quote-container {
     height: 500px;
     display: flex;
@@ -167,6 +208,7 @@
     flex-direction: column;
     background-color: #E5E7EB;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    scroll-snap-align: start;
 }
 
 .quote {
@@ -189,23 +231,7 @@
     justify-content: center;
     flex-direction: column;
     height: 400px;
-}
-
-.call{
-    font-size: 24px;
-    color: white;
-    font-weight: bolder;
-    position: relative;
-    right: 300px;
-    top: 20px;
-}
-
-.signup {
-    font-size: 15px;
-    color: white;
-    position: relative;
-    right: 220px;
-    top: 20px;
+    scroll-snap-align: start;
 }
 
 .box {
@@ -221,17 +247,7 @@
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
-.sign-up-2 {
-    background-color: #3882F6;
-    border: 2px solid white;
-    padding: 14px 40px;
-    border-radius: 5px;
-    font-size: 20px;
-    color: white;
-    position: relative;
-    left: 300px;
-    bottom: 30px
-}
+
 
 .footer-container {
     height: 100px;
@@ -241,4 +257,12 @@
     background-color: #1f2937;
     color: white;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+a:visited { /* a link that has been pressed */
+    color: white;  
+}
+
+a:link { /* links in general */
+    text-decoration: none;
 }
