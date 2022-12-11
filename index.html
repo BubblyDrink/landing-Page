@@ -5,42 +5,37 @@
         <title>LANDING PAGE</title>
         <link rel='stylesheet' href='styles.css'>
         <script src="https://kit.fontawesome.com/bb60ea838b.js" crossorigin="anonymous"></script>
+        <meta name="viewport" content="width=device-width">
     </head>
     <body>
-        <canvas id="gradient-canvas" data-js-darken-top data-transition-in></canvas>
-        <script type="module" src="./scripts/Gradient.js"></script>
-        <div class="hero-container" id="home"> <!--this is a scroll area-->  
-            <div id="navbar">
-                <div class="binary">[01000101]</div>
-                <a class="links" href="#home">Home</a>
-                <a class="links" href="#info">Languages</a>
-                <a class="links">Projects</a>
-                <script src="./scripts/nav.js"></script> 
-            </div> 
-            <div class="big-text">Hi! My name is Eric. </div>
-            <h1 id="text"></h1>
-            <script src="./scripts/typwriter.js"></script>
-            <div class="arrow"> <!-- arrows that point down from the main text-->
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-        </div> <!--THIS IS THE END OF THE HERO CONTAINER-->
-        <div class="info-container" id="info"> <!-- THIS IS THE START OF THE INFORMATION CONTAINER -->
-            <div class="random"> Here are the different languages I know.</div>
-            <div class="borders">
-                <div class="b1">
-                    <i class="fa-brands fa-square-js fa-10x"></i>
+        <div class="scroll-container">
+
+            <div class="scroll-area one" id="one">
+                <div class="navbar">
+                    <div class="binary">[01000101]</div>
+                    <a class="links" href="#one">Home</a>
+                    <a class="links" href="#info">Languages</a>
+                    <a class="links">Projects</a>
                 </div>
-                <div class="b2"></div>
-                <div class="b3"></div>
-                <div class="b4"></div>
+                <canvas id="gradient-canvas" data-js-darken-top data-transition-in></canvas>
+                <script type="module" src="./scripts/Gradient.js"></script> 
+                <div class="big-text">Hi! My name is Eric. </div>
+                <h1 id="text"></h1>
+                <script src="./scripts/typwriter.js"></script>
+                <div class="hero-links">
+                    <a title="Linkedin" class="fa-brands fa-linkedin fa-5x" href="https://www.linkedin.com/in/e-rock/"></a>
+                    <a title="Github" class="fa-brands fa-square-github fa-5x" href="https://github.com/BubblyDrink"></a>
+                    <a title="Resume" class="fa-solid fa-square-pen fa-5x" href=""></a>
+                </div>
+                <div class="down">Scroll Down</div>
+            </div>
+
+            <div class="scroll-area two">
+                <div class="box">This is a box</div>
 
             </div>
-        </div> <!-- THIS IS THE END OF THE INFO CONTAINER -->
-        <div class="quote-container"> <!--THIS IS THE START OF THE QUOTE CONTAINER-->
-            <div class="quote">“Nearly all men can stand adversity,<p>but if you want to test a man's character,</p><p>give him power."</p></div>
-            <div class="sig">-Abraham Lincoln </div>
-        </div><!--THIS IS THE END OF THE QUOTE CONTAINER-->
+            <div class="scroll-area three">3</div>
+            <div class="scroll-area four">4</div>
+        </div>
     </body>
 </html>

@@ -1,268 +1,191 @@
-body {
+body,html {
     margin: 0;
+    padding: 0;
+}
+* {
+    box-sizing: border-box;
+}
+
+::-webkit-scrollbar {
+    width: .5em;
+    background: transparent;
+}
+::-webkit-scrollbar-track {
+    margin-block: .5em;/* gap from the top of the screen*/
     
+}
+::-webkit-scrollbar-thumb {
+    background: rgb(187, 187, 187);
+    border-radius: 100vw;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: rgb(167, 167, 167)
 }
 
 #gradient-canvas {
-    width:100%;
-    height:100%;
-
-    position: absolute;
-    top: 0;
-    left: 0; 
-    right: 0;
+    position: fixed;
+    z-index: -1;
+    height: 100vh;
     --gradient-color-1: #c3e4ff; 
     --gradient-color-2: #6ec3f4; 
     --gradient-color-3: #eae2ff;  
     --gradient-color-4: #b9beff;
 }
-/* THIS IS THE END OF THE GRADIENT COLOR CODE */ 
 
-/* EVERYTHING BEYOND THIS POINT IS THE ARROW CODE */
-.arrow {
-    position: absolute; /* centers the arrow to the middle of the screen [ if set to relative it will be off screen] */
-    top: 92%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+.scroll-container, 
+.scroll-area {
+  height: 100vh;
 }
 
-.arrow span {
-    display: block;
-    width: 30px; /* sets the arrow length left side*/
-    height: 30px; /* sets the arrow length right side side*/
-    border-bottom: 10px solid white; /* sets the arrow thickness left side*/
-    border-right: 10px solid white; /* sets the arrow thickness right side*/
-    border-radius: 0px 8px 6px 8px;
-    margin: -10px; /* sets the gap between the arrows*/
-    animation: scroll 3s infinite; /* timing of the arrows dropping*/
-    transform: rotate(45deg); /* ??? */
-
-}
-/* this is for the children inside the arrow div*/
-.arrow span:nth-child(2){
-    animation-delay: -.2s;
+.scroll-container {
+    overflow: overlay;
+    overflow-x: hidden; /* determines scroll bar */
+    scroll-snap-type: y mandatory;
 }
 
-.arrow span:nth-child(3){
-    animation-delay: -.4s;
-}
-/* this controls the timing of the arrows*/
-@keyframes scroll{
-    0%{
-        opacity: 0; /* for some reason setting this to zero made it look smoother */
-        transform: rotate(45deg) translate(-20px, -20px);
-    }
-    50%{
-        opacity: 1;
-        
-    }
-    100%{
-        opacity: 1;
-        transform: rotate(45deg) translate(20px, 20px);
-    }
-}
-/* THIS IS THE END OF THE ARROW CODE */
-
-/* Style the navbar */
-#navbar {
-    color: white;/* calls for a animation called color */
+.scroll-area {
     display: flex;
-    width: 100%;
     align-items: center;
     justify-content: center;
-}
-/* Navbar links */
-.links {
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    font-weight: bolder;
-    font-size: x-large;
-    display: block;
-    padding: 30px;
-    position: relative;
-    left: 30%;
-}
-
-/* Binary logo */
-.binary {
-    font-size: xx-large;
-    font-weight: bolder;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    position: relative;
-    padding: 30px;
-    right: 30%;
-}
-
-/* Page content */
-.content {
-    padding: 16px;
-}
-
-/* The sticky class is added to the navbar with JS when it reaches its scroll position */
-.sticky {
-    position: fixed;
-    top: 0;
-    width: 100%;
-}
-
-/* Add some top padding to the page content to prevent sudden quick movement (as the navigation bar gets a new position at the top of the page (position:fixed and top:0) */
-.sticky + .content {
-    padding-top: 60px;
-}
-
-
-
-.hero-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     color: white;
-    background-color: black;
-    height: 1321px;
+    scroll-snap-align: start;
+}
+/*  */ 
+/*  */
+/*  */
+.one{
+    flex: auto;
+    flex-direction: column;
+    height: 100vh;
+    gap: 3vh; 
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
 .big-text {
+    position: relative;
+    top: 0vh;
+    z-index: 1;
     font-size:  48px;
-    top: 40vh;
-    position:absolute;
     font-weight: bolder;
 }
-
 #text {
+    margin: 0%;
     font-size:  48px;
-    top: 45vh;
-    position:absolute;
+    top: 0vh;
+    min-height: 5vh;
+    position: relative;
     font-weight: bolder;
 }
 
-.info-container {
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+/* THIS IS THE START OF ICON LINKS CSS */
+.hero-links {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    height: 1400px;
-} 
-
-.random {
-    font-size: 36px;  
-    font-weight: bolder;
-    color: black;
+    position: relative;
+    gap: 50px;    
+}
+.fa-square-pen {
     order: 1;
-    border: 2px solid black;
-    position: relative;
-    bottom: 400px;
-
+    color: #ffffff;
 }
-
-.borders {
-   display: flex;
-   position: relative;
-   order: 2;
-   bottom: 30px;
-   gap: 200px;
+.fa-linkedin {
+    order: 2;
+    color: #ffffff;
 }
-
-.b1 {
-    border: 3px solid #9b22ff;
-    border-radius: 20px;
-    width: 300px;
-    height: 150px;
-}
-
-.fa-square-js {
-    color:#9b22ff;
-}
-.b2 {
-    border: 3px solid #3882F6;
-    border-radius: 20px;
-    width: 150px;
-    height: 150px;
-}
-.b3 {
-    border: 3px solid #3882F6;
-    border-radius: 20px;
-    width: 150px;
-    height: 150px;
-}
-.b4 {
-    border: 3px solid #3882F6;
-    border-radius: 20px;
-    width: 150px;
-    height: 150px;
-}
-
-.b5 {
-    border: 3px solid #3882F6;
-    border-radius: 20px;
-    width: 150px;
-    height: 150px;
+.fa-square-github {
     order: 3;
+    color: #ffffff;
 }
-
-.quote-container {
-    height: 500px;
+.fa-linkedin:hover {
+    color: rgba(255, 255, 255, 0.473);
+    transition: color 0.5; /* amount of time it takes to change color */
+}
+.fa-square-github:hover {
+    color: rgba(255, 255, 255, 0.473);
+    transition: color 0.5;
+}
+.fa-square-pen:hover {
+    color: rgba(255, 255, 255, 0.473);
+    transition: color 0.5;
+}
+/* THIS IS THE END OF ICON LINKS CSS */
+/*  */
+/*  */
+.trans {
+    color: rgba(110, 195, 244, 0);
+    border: 2px white;
+}
+.navbar {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    background-color: #E5E7EB;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    scroll-snap-align: start;
-}
-
-.quote {
-    color: #8a929c;
-    font-style: italic;
-    font-size: 36px;
-}
-
-.sig {
-    font-size: 26px;
-    font-weight: bolder;
-    position: relative;
-    left: 300px;
-
-}
-
-.action-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    height: 400px;
-    scroll-snap-align: start;
-}
-
-.box {
-    border: 3px solid #3882F6;
-    background-color: #3882F6;
-    border-radius: 8px;
-    width: 1300px;
-    height: 200px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-}
-
-
-
-.footer-container {
-    height: 100px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #1f2937;
     color: white;
+    position: absolute;
+    flex-direction: row;
+    justify-content: flex-end;
+    top: 2vh;
+    gap: 2vw;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    mix-blend-mode: difference;
 }
 
-a:visited { /* a link that has been pressed */
-    color: white;  
+.binary {
+    color: white;
+    font-weight: bolder;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    padding-inline-end: 55vw;
+    font-size: xx-large;
 }
 
-a:link { /* links in general */
+.links {
+    color: white;
+    font-size: xx-large;
+    font-weight: bolder;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     text-decoration: none;
+    text-transform: uppercase;
 }
+
+.links:hover {
+    color: rgba(255, 255, 255, 0.699);
+}
+
+.down {
+    position: relative;
+    top: 35vh;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: x-large;
+    font-weight: bolder;
+}
+
+
+/*  */
+/*  */
+/*  */
+
+.two {
+    background-color: white;
+    color: black;
+}
+.box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #6ec3f4;
+    border: #6ec3f4;
+    border-radius: 2vh;
+    height: 70vh;
+    width: 130vh;
+
+}
+
+
+/*  */
+/*  */
+/*  */
+.three {
+    background-color: green;
+}
+.four{
+    background-color: purple;
+}
+
+
+
